@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">MyPortfolio</div>
+    <nav class="nav" id="nav-menu">
+      <ul>
+        <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+        <li><a href="#about" onclick="toggleMenu()">About</a></li>
+        <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+        <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <section id="home" class="section home-section" data-aos="fade-up">
+    <img src="c:\Users\kishore\Downloads\download.jpeg" alt="Profile" class="profile-img">
+    <h1>Hello, I'm Kishore Palanisamy</h1>
+    <p>Software Developer | Web Enthusiast | Problem Solver</p>
+  </section>
+
+  <section id="about" class="section" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>Hi! I'm Kishore Palanisamy, a passionate and detail-oriented Software Developer based in India.
+        I specialize in building responsive websites, dynamic web applications, and efficient software solutions.
+        
+        With a strong foundation in HTML, CSS, JavaScript, and experience in backend development, I love solving real-world problems through technology.
+        
+        My approach to work is simple:
+        
+        Clean Code
+        
+        Creative Thinking
+        
+        Continuous Learning
+        
+        Besides coding, I enjoy exploring new tech trends, working on open-source projects, and helping businesses grow digitally.
+        
+        Let's create something amazing together!</p>
+  </section>
+
+  <section id="projects" class="section" data-aos="fade-up">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="c:\Users\kishore\Pictures\Screenshots\Screenshot 2025-04-26 204810.png" alt="Project 1">
+        <h3>Expense Tracker App</h3>
+        <p>Developed a web-based expense tracking system that helps users manage income and expenses efficiently,
+            improving financial tracking accuracy by 90%.
+            Implemented CRUD operations with local storage/Firebase, enabling seamless data persistence and reducing
+            manual record-keeping efforts by 70%.
+            Integrated Chart.js for real-time expense visualization, enhancing user insights and improving financial
+            decision-making by 50%.</p>
+      </div>
+      <div class="project-card">
+        <img src="c:\Users\kishore\Pictures\Screenshots\Screenshot 2025-04-26 205336.png" alt="Project 2">
+        <h3>Document Scanner AI</h3>
+        <p>Developed a system that identifies and extracts facial images and signatures from uploaded documents with 95%
+            accuracy, reducing manual processing time by 60%.
+            Utilized Deep Learning (YOLOv5 for object detection, OCR for text extraction) and Stream lit, optimizing the
+            system to process over 100 documents per hour with an 80% faster response time.
+            Enhanced user interaction, increasing engagement by 40% with a seamless, real-time document processing
+            interface. </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section" data-aos="fade-up">
+    <h2>Contact</h2>
+    <form id="contact-form" class="contact-form">
+      <input type="text" name="from_name" placeholder="Your Name" required>
+      <input type="email" name="email_id" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Kishore Palanisamy. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    // Initialize AOS
+    AOS.init();
+
+    // Initialize EmailJS
+    (function(){
+      emailjs.init("kziQaO1degWweHuPc");
+    })();
+
+    // Handle form submission
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      emailjs.sendForm('service_15venvh', 'template_nrz9dkn', this)
+        .then(function() {
+            alert('Message sent successfully!');
+            document.getElementById('contact-form').reset();
+        }, function(error) {
+            alert('Failed to send message, please try again.');
+        });
+    });
+  </script>
+
+</body>
+</html>
